@@ -1,7 +1,8 @@
 package com.cache.ds;
 
 /**
- * This datastructure would store the data in a Double Linked List storage in FIFO fashion
+ * This datastructure would store the data in a Double Linked List storage
+ * and perform actions in FIFO fashion
  *
  * @param <E>
  */
