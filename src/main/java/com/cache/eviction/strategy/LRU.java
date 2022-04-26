@@ -61,6 +61,17 @@ public class LRU<K, V> {
         this.map = new HashMap<>();
     }
 
+    /**
+     *  print the content in cache, not necessarily in order
+     */
+    public void printCache() {
+        if (map.size() == 0) {
+            System.out.println("Cache is empty");
+        }
+        map.forEach((k, cachedKeyValCompositeDLL) ->
+                System.out.println("Key: " + k + " Value: " + cachedKeyValCompositeDLL.getT().getValue()));
+    }
+
     private static class CachedKeyValComposite<K, V> {
         K key;
         V value;
@@ -124,7 +135,7 @@ public class LRU<K, V> {
 
         DLL<T> addFirst(T t) {
             DLL<T> node = new DLL<>(t, header.getNext(), header);
-            if(header.getNext() !=null)
+            if (header.getNext() != null)
                 header.getNext().setPrev(node);
             header.setNext(node);
             if (size == 0) {
@@ -139,9 +150,9 @@ public class LRU<K, V> {
             DLL<T> next = node.getNext();
             if (prev != null)
                 prev.setNext(node.getNext());
-            if(next !=null)
+            if (next != null)
                 next.setPrev(node.getPrev());
-            if(prev == header)
+            if (prev == header)
                 prev.setNext(next);
             if (next == trailer)
                 trailer.setPrev(prev);

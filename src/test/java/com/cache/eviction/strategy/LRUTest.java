@@ -44,4 +44,13 @@ class LRUTest {
         assertFalse("Clark Kent".equals(lru.get("Superman")));
         assertEquals(lru.get("Superman"), null);
     }
+
+    @Test
+    void printCache() {
+        LRU<String, String> lru = new LRU<>();
+        lru.printCache();
+        lru.put("Batman", "Bruce Wayne");
+        lru.put("Superman", "Clark Kent");
+        lru.printCache();
+    }
 }
